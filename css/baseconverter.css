@@ -1,0 +1,10 @@
+div{
+    display: inline-block;
+    line-height: 2em;
+}
+input{
+    width: 420px;
+}
+input[type=button]{
+    width: auto;
+}
