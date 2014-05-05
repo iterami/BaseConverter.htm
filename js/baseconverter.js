@@ -34,14 +34,6 @@ function update_all(base){
 document.getElementById(36).value = window.location.search.substring(1);
 update_all(36);
 
-/*document.getElementById('event-delegator').addEventListener('input',function(e){
-    var key = window.event ? event : e;
-    key = key.charCode ? key.charCode : key.keyCode;
-
-    console.log(key);
-    update_all(e.target.id);
-});*/
-
 window.onkeyup = function(e){
     if(document.activeElement.tagName == 'INPUT'){
         var key = window.event ? event : e;
