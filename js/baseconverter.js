@@ -6,14 +6,15 @@ function clear_all(){
 function save(){
     prompt(
       'URL to Save/Share:',
-      'http://iterami.com/repositories/BaseConverter/?' + document.getElementById(36).value
+      'http://iterami.com/repositories/BaseConverter/?'
+        + document.getElementById(36).value
     );
 }
 
 function update_all(base){
-    var loop_counter = 34;
     var loop_ids = 0;
 
+    var loop_counter = 34;
     do{
         loop_ids = loop_counter + 2;
 
@@ -42,7 +43,10 @@ window.onkeyup = function(e){
         // only handle alphanumeric key presses
         if(key.match(/^[a-z0-9]+$/i)){
             // limit available characters based on base
-            var available = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.substring(0, parseInt(document.activeElement.id));
+            var available = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.substring(
+              0,
+              parseInt(document.activeElement.id)
+            );
 
             // check if pressed key is available
             // if it is, update all bases
@@ -51,8 +55,9 @@ window.onkeyup = function(e){
 
             // else, blank all bases
             }else{
-                var loop_counter = 34;
                 var loop_ids = 0;
+
+                var loop_counter = 34;
                 do{
                     loop_ids = loop_counter + 2;
                     if(loop_ids != document.activeElement.id){
