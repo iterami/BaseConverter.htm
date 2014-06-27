@@ -6,7 +6,7 @@ function clear_all(){
 function save(){
     prompt(
       'URL to Save/Share:',
-      'http://iterami.com/repositories/BaseConverter/?'
+      'http://iterami.com/repositories/BaseConverter.htm/?'
         + document.getElementById(36).value
     );
 }
