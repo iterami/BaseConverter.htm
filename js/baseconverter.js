@@ -1,6 +1,33 @@
-function clear_all(){
-    document.getElementById(2).value = '';
-    update_all(2);
+function clear_all(except_id){
+    except_id = except_id || -1;
+
+    var id = 0;
+    var loop_counter = 34;
+    do{
+        id = loop_counter + 2;
+
+        if(id == except_id){
+            continue;
+        }
+
+        document.getElementById(id).value = '';
+    }while(loop_counter--);
+}
+
+function init(){
+    // fetch saved base36 value
+    document.getElementById(36).value = window.location.search.substring(1);
+    update_all(36);
+
+    var id = 0;
+    var loop_counter = 34;
+    do{
+        id = loop_counter + 2;
+
+        document.getElementById(id).oninput = function(e){
+            update_all(this.id);
+        };
+    }while(loop_counter--);
 }
 
 function save(){
@@ -12,59 +39,39 @@ function save(){
 }
 
 function update_all(base){
-    var loop_ids = 0;
+    if(document.getElementById(base).value.length <= 0){
+        clear_all();
+    }
 
+    var id = 0;
     var loop_counter = 34;
     do{
-        loop_ids = loop_counter + 2;
+        id = loop_counter + 2;
 
-        if(loop_counter != base - 2){
-            document.getElementById(loop_ids).value = parseInt(
+        if(base != id){
+            document.getElementById(id).value = parseInt(
               document.getElementById(base).value,
               base
-            ).toString(loop_ids);
+            ).toString(id);
 
-            if(document.getElementById(loop_ids).value == 'NaN'){
-                document.getElementById(loop_ids).value = '';
+            if(document.getElementById(id).value == 'NaN'){
+                document.getElementById(id).value = '';
+            }
+        }
+
+        // Check if base input has any illegal characters.
+        var maxkey = document.getElementById(id).value.toLowerCase();
+        if(maxkey.length > 0){
+            maxkey = maxkey.split('').sort()[maxkey.length - 1].charCodeAt(0);
+
+            if((loop_counter < 9 && maxkey > 49 + loop_counter)
+              || maxkey > 88 + loop_counter){
+                // If it does, hide impossible results.
+                clear_all(base);
+                return;
             }
         }
     }while(loop_counter--);
 }
 
-// fetch saved base36 value
-document.getElementById(36).value = window.location.search.substring(1);
-update_all(36);
-
-window.onkeyup = function(e){
-    if(document.activeElement.tagName == 'INPUT'){
-        var key = window.event ? event : e;
-        key = String.fromCharCode(key.charCode ? key.charCode : key.keyCode);
-
-        // only handle alphanumeric key presses
-        if(key.match(/^[a-z0-9]+$/i)){
-            // limit available characters based on base
-            var available = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.substring(
-              0,
-              parseInt(document.activeElement.id)
-            );
-
-            // check if pressed key is available
-            // if it is, update all bases
-            if(available.indexOf(key) > -1){
-                update_all(document.activeElement.id);
-
-            // else, blank all bases
-            }else{
-                var loop_ids = 0;
-
-                var loop_counter = 34;
-                do{
-                    loop_ids = loop_counter + 2;
-                    if(loop_ids != document.activeElement.id){
-                        document.getElementById(loop_ids).value = '';
-                    }
-                }while(loop_counter--);
-            }
-        }
-    }
-};
+window.onload = init;
