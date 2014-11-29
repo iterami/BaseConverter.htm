@@ -13,7 +13,7 @@ input{
     background: #000;
     border: 1px solid #666;
     color: #aaa;
-    width: 420px;
+    width: 250px;
 }
 input[type=button]{
     width: auto;
