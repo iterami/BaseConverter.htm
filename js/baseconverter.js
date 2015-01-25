@@ -14,22 +14,6 @@ function clear_all(except_id){
     }while(loop_counter--);
 }
 
-function init(){
-    // Fetch saved base36 value.
-    document.getElementById(36).value = window.location.search.substring(1);
-    update_all(36);
-
-    var id = 36;
-    var loop_counter = 34;
-    do{
-        id = loop_counter + 2;
-
-        document.getElementById(id).oninput = function(e){
-            update_all(this.id);
-        };
-    }while(loop_counter--);
-}
-
 function save(){
     prompt(
       'URL to Save/Share:',
@@ -74,4 +58,18 @@ function update_all(base){
     }while(loop_counter--);
 }
 
-window.onload = init;
+window.onload = function(){
+    // Fetch saved base36 value.
+    document.getElementById(36).value = window.location.search.substring(1);
+    update_all(36);
+
+    var id = 36;
+    var loop_counter = 34;
+    do{
+        id = loop_counter + 2;
+
+        document.getElementById(id).oninput = function(e){
+            update_all(this.id);
+        };
+    }while(loop_counter--);
+};
