@@ -15,7 +15,7 @@ function clear_all(except_id){
 }
 
 function save(){
-    prompt(
+    window.prompt(
       'URL to Save/Share:',
       'http://iterami.com/repositories/BaseConverter.htm/?'
         + document.getElementById(36).value
