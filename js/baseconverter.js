@@ -1,7 +1,7 @@
 function clear_all(except_id){
     except_id = except_id || -1;
 
-    var id = 36;
+    var id = 0;
     var loop_counter = 34;
     do{
         id = loop_counter + 2;
@@ -27,7 +27,7 @@ function update_all(base){
         clear_all();
     }
 
-    var id = 36;
+    var id = 0;
     var loop_counter = 34;
     do{
         id = loop_counter + 2;
@@ -63,7 +63,7 @@ window.onload = function(){
     document.getElementById(36).value = window.location.search.substring(1);
     update_all(36);
 
-    var id = 36;
+    var id = 0;
     var loop_counter = 34;
     do{
         id = loop_counter + 2;
