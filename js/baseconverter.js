@@ -1,3 +1,5 @@
+'use strict';
+
 function clear_all(except_id){
     except_id = except_id || -1;
 
