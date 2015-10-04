@@ -11,12 +11,13 @@ div{
 }
 input{
     background: #000;
-    border: 1px solid #666;
     color: #aaa;
+}
+input:not([type=button]){
+    border: 1px solid #666;
     padding: 5px;
     width: 250px;
 }
 input[type=button]{
     cursor: pointer;
-    width: auto;
 }
