@@ -18,7 +18,7 @@ function clear_all(except_id){
 
 function save(){
     window.prompt(
-      'URL to Save/Share:',
+      'URL:',
       location.protocol + '//' + location.host + location.pathname + '?'
         + document.getElementById(36).value
     );
