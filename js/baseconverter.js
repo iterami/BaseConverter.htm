@@ -19,7 +19,7 @@ function clear_all(except_id){
 function save(){
     window.prompt(
       'URL to Save/Share:',
-      'http://iterami.com/BaseConverter.htm/?'
+      location.protocol + '//' + location.host + location.pathname + '?'
         + document.getElementById(36).value
     );
 }
