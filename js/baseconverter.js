@@ -1,6 +1,12 @@
 'use strict';
 
-function clear_all(except_id){
+function clear_all(){
+    if(window.confirm('Clear?')){
+        clear_bases();
+    }
+}
+
+function clear_bases(except_id){
     except_id = except_id || -1;
 
     var id = 0;
@@ -24,9 +30,9 @@ function save(){
     );
 }
 
-function update_all(base){
+function update_bases(base){
     if(document.getElementById(base).value.length <= 0){
-        clear_all();
+        clear_bases();
     }
 
     var id = 0;
@@ -53,7 +59,7 @@ function update_all(base){
             if((loop_counter < 9 && maxkey > 49 + loop_counter)
               || maxkey > 88 + loop_counter){
                 // If it does, hide impossible results.
-                clear_all(base);
+                clear_bases(base);
                 return;
             }
         }
@@ -63,7 +69,7 @@ function update_all(base){
 window.onload = function(){
     // Fetch saved base36 value.
     document.getElementById(36).value = window.location.search.substring(1);
-    update_all(36);
+    update_bases(36);
 
     var id = 0;
     var loop_counter = 34;
@@ -71,7 +77,7 @@ window.onload = function(){
         id = loop_counter + 2;
 
         document.getElementById(id).oninput = function(e){
-            update_all(this.id);
+            update_bases(this.id);
         };
     }while(loop_counter--);
 };
