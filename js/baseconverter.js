@@ -25,8 +25,10 @@ function clear_bases(except_id){
 function save(){
     window.prompt(
       'URL:',
-      location.protocol + '//' + location.host + location.pathname + '?'
-        + document.getElementById(36).value
+      window.location.protocol
+        + '//' + window.location.host
+        + window.location.pathname
+        + '?' + document.getElementById(36).value
     );
 }
 
