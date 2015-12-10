@@ -33,7 +33,8 @@ function save(){
 }
 
 function update_bases(base){
-    if(document.getElementById(base).value.length <= 0){
+    var base_value = document.getElementById(base).value;
+    if(base_value.length <= 0){
         clear_bases();
     }
 
@@ -41,20 +42,23 @@ function update_bases(base){
     var loop_counter = 34;
     do{
         id = loop_counter + 2;
+        var value = '';
 
         if(base != id){
-            document.getElementById(id).value = parseInt(
-              document.getElementById(base).value,
+            value = parseInt(
+              base_value,
               base
             ).toString(id);
 
-            if(document.getElementById(id).value == 'NaN'){
-                document.getElementById(id).value = '';
+            if(value == 'NaN'){
+                value = '';
             }
+
+            document.getElementById(id).value = value;
         }
 
         // Check if base input has any illegal characters.
-        var maxkey = document.getElementById(id).value.toLowerCase();
+        var maxkey = value.toLowerCase();
         if(maxkey.length > 0){
             maxkey = maxkey.split('').sort()[maxkey.length - 1].charCodeAt(0);
 
