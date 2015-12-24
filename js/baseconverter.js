@@ -14,11 +14,9 @@ function clear_bases(except_id){
     do{
         id = loop_counter + 2;
 
-        if(id == except_id){
-            continue;
+        if(id != except_id){
+            document.getElementById(id).value = '';
         }
-
-        document.getElementById(id).value = '';
     }while(loop_counter--);
 }
 
