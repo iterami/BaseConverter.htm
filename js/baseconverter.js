@@ -84,4 +84,7 @@ window.onload = function(){
             update_bases(this.id);
         };
     }while(loop_counter--);
+
+    document.getElementById('clear-all').onclick = clear_all;
+    document.getElementById('save').onclick = save;
 };
