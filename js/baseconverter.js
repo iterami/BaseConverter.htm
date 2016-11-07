@@ -71,6 +71,18 @@ function update_bases(base){
 }
 
 window.onload = function(){
+    // Create inputs.
+    var output = '<input id=clear-all type=button value=Clear><input id=save type=button value=Save><br>';
+    for(var i = 2; i < 19; i++){
+        output += i + '<input id=' + i + '><br>';
+    }
+    document.getElementById('left').innerHTML = output;
+    output = '';
+    for(i = 19; i < 37; i++){
+        output += i + '<input id=' + i + '><br>';
+    }
+    document.getElementById('right').innerHTML = output;
+
     // Fetch saved base36 value.
     document.getElementById(36).value = window.location.search.substring(1);
     update_bases(36);
