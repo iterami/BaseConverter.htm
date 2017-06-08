@@ -21,6 +21,10 @@ function clear_bases(except_id){
 }
 
 function repo_init(){
+    core_repo_init({
+      'title': 'BaseConverter.htm',
+    });
+
     // Create inputs.
     var output = '<input id=clear-all type=button value=Clear><input id=save type=button value=Save><br>';
     for(var i = 2; i < 19; i++){
