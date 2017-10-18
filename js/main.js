@@ -1,10 +1,6 @@
 'use strict';
 
 function repo_init(){
-    core_repo_init({
-      'title': 'BaseConverter.htm',
-    });
-
     // Create inputs.
     var output = '<input id=clear-all type=button value=Clear><input id=save type=button value=Save><br>';
     for(var i = 2; i < 19; i++){
@@ -16,6 +12,22 @@ function repo_init(){
         output += i + '<input id=' + i + '><br>';
     }
     document.getElementById('right').innerHTML = output;
+
+    core_repo_init({
+      'info-events': {
+        'clear-all': {
+          'todo': function(){
+              clear_all();
+          },
+        },
+        'save': {
+          'todo': function(){
+              save();
+          },
+        },
+      },
+      'title': 'BaseConverter.htm',
+    });
 
     // Fetch saved base36 value.
     document.getElementById(36).value = window.location.search.substring(1);
@@ -30,7 +42,4 @@ function repo_init(){
             update_bases(this.id);
         };
     }while(loop_counter--);
-
-    document.getElementById('clear-all').onclick = clear_all;
-    document.getElementById('save').onclick = save;
 }
