@@ -16,14 +16,10 @@ function repo_init(){
     core_repo_init({
       'info-events': {
         'clear-all': {
-          'todo': function(){
-              clear_all();
-          },
+          'todo': clear_all,
         },
         'save': {
-          'todo': function(){
-              save();
-          },
+          'todo': save,
         },
       },
       'title': 'BaseConverter.htm',
