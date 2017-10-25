@@ -14,12 +14,12 @@ function repo_init(){
     document.getElementById('right').innerHTML = output;
 
     core_repo_init({
-      'info-events': {
+      'events': {
         'clear-all': {
-          'todo': clear_all,
+          'onclick': clear_all,
         },
         'save': {
-          'todo': save,
+          'onclick': save,
         },
       },
       'title': 'BaseConverter.htm',
