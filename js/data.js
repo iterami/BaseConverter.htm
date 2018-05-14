@@ -54,18 +54,5 @@ function update_bases(base){
 
             document.getElementById(id).value = value;
         }
-
-        // Check if base input has any illegal characters.
-        var maxkey = value.toLowerCase();
-        if(maxkey.length > 0){
-            maxkey = maxkey.split('').sort()[maxkey.length - 1].charCodeAt(0);
-
-            if((loop_counter < 9 && maxkey > 49 + loop_counter)
-              || maxkey > 88 + loop_counter){
-                // If it does, hide impossible results.
-                clear_bases(base);
-                return;
-            }
-        }
     }while(loop_counter--);
 }

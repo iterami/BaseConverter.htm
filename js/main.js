@@ -1,18 +1,6 @@
 'use strict';
 
 function repo_init(){
-    // Create inputs.
-    var output = '<input id=clear-all type=button value=Clear><input id=save type=button value=Save><br>';
-    for(var i = 2; i < 19; i++){
-        output += i + '<input id=' + i + '><br>';
-    }
-    document.getElementById('left').innerHTML = output;
-    output = '';
-    for(i = 19; i < 37; i++){
-        output += i + '<input id=' + i + '><br>';
-    }
-    document.getElementById('right').innerHTML = output;
-
     core_repo_init({
       'events': {
         'clear-all': {
@@ -24,6 +12,13 @@ function repo_init(){
       },
       'title': 'BaseConverter.htm',
     });
+
+    // Create textareas.
+    var output = '';
+    for(var i = 2; i < 37; i++){
+        output += i + '<textarea class=small id=' + i + '></textarea><br>';
+    }
+    document.getElementById('bases').innerHTML = output;
 
     // Fetch saved base36 value.
     document.getElementById(36).value = window.location.search.substring(1);
