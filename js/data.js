@@ -43,7 +43,7 @@ function update_bases(base){
         var value = '';
 
         if(base != id){
-            value = parseInt(
+            value = Number.parseInt(
               base_value,
               base
             ).toString(id);
