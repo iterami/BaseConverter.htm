@@ -14,8 +14,8 @@ function repo_init(){
     });
 
     // Create textareas.
-    var output = '';
-    for(var i = 2; i < 37; i++){
+    let output = '';
+    for(let i = 2; i < 37; i++){
         output += i + '<textarea class=small id=' + i + '></textarea><br>';
     }
     document.getElementById('bases').innerHTML = output;
@@ -24,8 +24,8 @@ function repo_init(){
     document.getElementById(36).value = window.location.search.substring(1);
     update_bases(36);
 
-    var id = 0;
-    var loop_counter = 34;
+    let id = 0;
+    let loop_counter = 34;
     do{
         id = loop_counter + 2;
 

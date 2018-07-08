@@ -9,8 +9,8 @@ function clear_all(){
 function clear_bases(except_id){
     except_id = except_id || -1;
 
-    var id = 0;
-    var loop_counter = 34;
+    let id = 0;
+    let loop_counter = 34;
     do{
         id = loop_counter + 2;
 
@@ -31,16 +31,16 @@ function save(){
 }
 
 function update_bases(base){
-    var base_value = document.getElementById(base).value;
+    let base_value = document.getElementById(base).value;
     if(base_value.length <= 0){
         clear_bases();
     }
 
-    var id = 0;
-    var loop_counter = 34;
+    let id = 0;
+    let loop_counter = 34;
     do{
         id = loop_counter + 2;
-        var value = '';
+        let value = '';
 
         if(base != id){
             value = Number.parseInt(
