@@ -10,13 +10,15 @@ function repo_init(){
           'onclick': save,
         },
       },
+      'info': '<input id=clear-all type=button value=Clear><input id=save type=button value=Save>',
+      'menu': true,
       'title': 'BaseConverter.htm',
     });
 
     // Create textareas.
     let output = '';
     for(let i = 2; i < 37; i++){
-        output += i + '<textarea class=small id=' + i + '></textarea><br>';
+        output += '<tr><td>' + i + '<td><textarea class=small id=' + i + '></textarea>';
     }
     document.getElementById('bases').innerHTML = output;
 
