@@ -14,7 +14,7 @@ function clear_bases(except_id){
     do{
         id = loop_counter + 2;
 
-        if(id != except_id){
+        if(id !== except_id){
             document.getElementById(id).value = '';
         }
     }while(loop_counter--);
@@ -42,7 +42,7 @@ function update_bases(base){
         id = loop_counter + 2;
         let value = '';
 
-        if(base != id){
+        if(base !== id){
             value = Number.parseInt(
               base_value,
               base
