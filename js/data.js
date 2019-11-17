@@ -48,7 +48,7 @@ function update_bases(base){
               base
             ).toString(id);
 
-            if(value == 'NaN'){
+            if(isNaN(value)){
                 value = '';
             }
 
