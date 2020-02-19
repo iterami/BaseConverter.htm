@@ -23,7 +23,7 @@ function repo_init(){
     document.getElementById('bases').innerHTML = output;
 
     // Fetch saved base36 value.
-    document.getElementById(36).value = window.location.search.substring(1);
+    document.getElementById(36).value = globalThis.location.search.substring(1);
     update_bases(36);
 
     let id = 0;

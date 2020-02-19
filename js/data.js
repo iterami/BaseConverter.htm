@@ -1,7 +1,7 @@
 'use strict';
 
 function clear_all(){
-    if(window.confirm('Clear?')){
+    if(globalThis.confirm('Clear?')){
         clear_bases();
     }
 }
@@ -21,11 +21,11 @@ function clear_bases(except_id){
 }
 
 function save(){
-    window.prompt(
+    globalThis.prompt(
       'URL:',
-      window.location.protocol
-        + '//' + window.location.host
-        + window.location.pathname
+      globalThis.location.protocol
+        + '//' + globalThis.location.host
+        + globalThis.location.pathname
         + '?' + document.getElementById(36).value
     );
 }
