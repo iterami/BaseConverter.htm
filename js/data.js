@@ -32,7 +32,7 @@ function save(){
 
 function update_bases(base){
     const base_value = document.getElementById(base).value;
-    if(base_value.length <= 0){
+    if(base_value.length === 0){
         clear_bases();
     }
 
