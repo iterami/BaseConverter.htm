@@ -15,14 +15,12 @@ function repo_init(){
       'title': 'BaseConverter.htm',
     });
 
-    // Create textareas.
     let output = '';
     for(let i = 2; i < 37; i++){
         output += '<tr><td><a href=#' + i + '>' + i + '</a><td><textarea class=small id=' + i + '></textarea>';
     }
     document.getElementById('bases').innerHTML = output;
 
-    // Fetch saved base36 value.
     document.getElementById(36).value = globalThis.location.search.substring(1);
     update_bases(36);
 
