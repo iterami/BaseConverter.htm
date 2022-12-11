@@ -11,7 +11,6 @@ function repo_init(){
         },
       },
       'info': '<input id=clear-all type=button value=Clear><input id=save type=button value=Save>',
-      'menu': true,
       'title': 'BaseConverter.htm',
     });
 
