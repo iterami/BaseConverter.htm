@@ -16,7 +16,7 @@ function repo_init(){
 
     let output = '';
     for(let i = 2; i < 37; i++){
-        output += '<tr><td><a href=#' + i + '>' + i + '</a><td><textarea class=small id=' + i + '></textarea>';
+        output += '<tr><td><a href=#' + i + '>' + i + '</a><td><textarea id=' + i + '></textarea>';
     }
     document.getElementById('bases').innerHTML = output;
 
