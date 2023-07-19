@@ -30,7 +30,6 @@ function repo_init(){
           'onclick': save,
         },
       },
-      'info': '<input id=clear-all type=button value=Clear><input id=save type=button value=Save>',
       'title': 'BaseConverter.htm',
     });
 
