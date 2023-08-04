@@ -73,19 +73,14 @@ function update_bases(base){
     let loop_counter = 34;
     do{
         id = loop_counter + 2;
-        let value = '';
-
         if(base !== id){
-            value = Number.parseInt(
+            const value = Number.parseInt(
               base_value,
               base
-            ).toString(id);
-
-            if(isNaN(value)){
-                value = '';
-            }
-
-            document.getElementById(id).value = value;
+            );
+            document.getElementById(id).value = Number.isNaN(value)
+              ? ''
+              : value.toString(id);
         }
     }while(loop_counter--);
 }
