@@ -15,7 +15,7 @@ function clear_bases(except_id){
         id = loop_counter + 2;
 
         if(id !== except_id){
-            document.getElementById(id).value = '';
+            core_elements[id].value = '';
         }
     }while(loop_counter--);
 }
@@ -39,18 +39,19 @@ function repo_init(){
     }
     document.getElementById('bases').innerHTML = output;
 
-    document.getElementById(36).value = globalThis.location.search.substring(1);
-    update_bases(36);
-
     let id = 0;
     let loop_counter = 34;
     do{
         id = loop_counter + 2;
+        core_elements[id] = document.getElementById(id);
 
-        document.getElementById(id).oninput = function(e){
+        core_elements[id].oninput = function(e){
             update_bases(this.id);
         };
     }while(loop_counter--);
+
+    core_elements[36].value = globalThis.location.search.substring(1);
+    update_bases(36);
 }
 
 function save(){
@@ -59,12 +60,12 @@ function save(){
       globalThis.location.protocol
         + '//' + globalThis.location.host
         + globalThis.location.pathname
-        + '?' + document.getElementById(36).value
+        + '?' + core_elements[36].value
     );
 }
 
 function update_bases(base){
-    const base_value = document.getElementById(base).value;
+    const base_value = core_elements[base].value;
     if(base_value.length === 0){
         clear_bases();
     }
@@ -78,7 +79,7 @@ function update_bases(base){
               base_value,
               base
             );
-            document.getElementById(id).value = Number.isNaN(value)
+            core_elements[id].value = Number.isNaN(value)
               ? ''
               : value.toString(id);
         }
