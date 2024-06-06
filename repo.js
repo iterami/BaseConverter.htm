@@ -79,7 +79,7 @@ function update_bases(base){
               base_value,
               base
             );
-            core_elements[id].value = Number.isNaN(value)
+            core_elements[id].value = globalThis.isNaN(value)
               ? ''
               : value.toString(id);
         }
