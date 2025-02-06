@@ -45,7 +45,7 @@ function repo_init(){
         id = loop_counter + 2;
         core_elements[id] = document.getElementById(id);
 
-        core_elements[id].oninput = function(e){
+        core_elements[id].oninput = function(){
             update_bases(this.id);
         };
     }while(loop_counter--);
