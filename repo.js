@@ -31,6 +31,7 @@ function repo_init(){
         },
       },
       'title': 'BaseConverter.htm',
+      'ui': '<button id=clear-all type=button>Clear</button><button id=save type=button>Save</button>',
     });
 
     let output = '';
