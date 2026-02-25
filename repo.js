@@ -9,15 +9,12 @@ function clear_all(){
 function clear_bases(except_id){
     except_id = except_id || -1;
 
-    let id = 0;
-    let loop_counter = 34;
-    do{
-        id = loop_counter + 2;
-
+    for(let i = 0; i < 35; i++){
+        const id = i + 2;
         if(id !== except_id){
             core_elements[id].value = '';
         }
-    }while(loop_counter--);
+    }
 }
 
 function repo_init(){
@@ -40,16 +37,13 @@ function repo_init(){
     }
     document.getElementById('bases').innerHTML = output;
 
-    let id = 0;
-    let loop_counter = 34;
-    do{
-        id = loop_counter + 2;
+    for(let i = 0; i < 35; i++){
+        const id = i + 2;
         core_elements[id] = document.getElementById(id);
-
         core_elements[id].oninput = function(){
             update_bases(this.id);
         };
-    }while(loop_counter--);
+    }
 
     core_elements[36].value = globalThis.location.search.substring(1);
     update_bases(36);
@@ -71,18 +65,18 @@ function update_bases(base){
         clear_bases();
     }
 
-    let id = 0;
-    let loop_counter = 34;
-    do{
-        id = loop_counter + 2;
-        if(base !== id){
-            const value = Number.parseInt(
-              base_value,
-              base
-            );
-            core_elements[id].value = globalThis.isNaN(value)
-              ? ''
-              : value.toString(id);
+    for(let i = 0; i < 35; i++){
+        const id = i + 2;
+        if(base === id){
+            continue;
         }
-    }while(loop_counter--);
+
+        const value = Number.parseInt(
+          base_value,
+          base
+        );
+        core_elements[id].value = globalThis.isNaN(value)
+          ? ''
+          : value.toString(id);
+    }
 }
